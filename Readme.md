@@ -134,3 +134,78 @@ _**사이드 이펙트**: 프로그래밍에서 어떤 계산이 주된 작업 �
 - 캐시 안정성
 - 멀티 쓰레드 안정성
 - 엔티티의 값 타입
+
+<br><br><br><br>
+
+## String
+
+<br>
+
+#### `String` 클래스를 통해 문자열 생성하는 방법
+> 쌍따옴표 사용: **"hello"**  
+> 객체 생성: **new String("hello");**
+
+<br>
+
+- String은 클래스다. 기본형이 아닌 참조형이다
+- 따라서 다음 코드는 어색하다
+```java
+String str = "hello";
+```
+- 문자열은 자주 사용하기 때문에 자바 언어에서 편의상 `new String("hello")`와 같이 변경해 준다
+- 실제로 성능 최적화를 위해 문자열 풀 사용
+
+### String 클래스 구조 
+```
+public final class String { 
+
+  //문자열 보관
+  private final char[] value;// 자바 9 이전
+  private final byte[] value;// 자바 9 이후
+  
+  //여러 메서드
+  public String concat(String str) {...}
+  public int length() {...}
+  ...
+}
+```
+- `String` 문자열은 내부에서 `char[]`에 보관된다
+- 자바 9부터 `String` 클래스에서 `char[]`대신 `byte[]` 사용
+  - 메모리를 더 효율적으로 사용하기 위해
+
+### String 클래스와 참조형
+```
+        String a = "hello";
+        String b = " java";
+
+        String result1 = a.concat(b);
+        String result2 = a + b;
+        System.out.println("result1 = " + result1);
+        System.out.println("result2 = " + result2);
+```
+- 참조형은 원칙적으로 `+`같은 연산을 사용할 수 없다
+- 하지만 `String`은 참조형이라도 너무 자주 다루어져서 자바에서 편의상 특별히 `+` 연산 제공
+
+### 문자열 리터럴, 문자열 풀
+![.](src/static/string.png)
+- `String str = "hello"`는 `String str = new String("hello")`와 달리 메모리 효율성과 성능 최적화를 위해 문자열 풀을 사용한다
+- 문자열 리터럴은 문자열 객체 생성과 달리 문자열 풀 사용
+```
+String str3 = "hello";
+String str4 = "hello";
+```
+- str3, str4은 문자열 풀에서 "hello"라는 문자를 가진 `String`인스턴스를 찾고 참조를 반환한다
+- str3, str4 모두 같은 문자열 리터럴을 사용하므로 참조값이 같다
+- 따라서 str3과 str4는 동일성이 같다
+
+<br>
+
+> 풀(Pool)은 자원이 모여있는 곳을 의미한다. 프로그래밍에서 풀(Pool)은 공용 자원을 모아둔 곳을 뜻한다
+
+> 문자열 풀에서 문자를 찾을 때는 해시 알고리즘을 사용하기 때문에 매우 빠른 속도로 원하는 `String`인스턴스를 찾을 수 있다
+
+<br>
+
+### String - 불변 객체
+- String은 불변 객체이다.
+- 따라서 String은 생성 이후에 절대로 내부의 문자열 값을 변경할 수 없다
