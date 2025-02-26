@@ -1,4 +1,4 @@
-package mid_1.lang.tostring;
+package mid_1.lang.object.tostring;
 
 public class ToStringMain1 {
     public static void main(String[] args) {
