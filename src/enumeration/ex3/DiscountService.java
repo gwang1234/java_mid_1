@@ -1,7 +1,7 @@
-package enumeration.ex03;
+package enumeration.ex3;
 
 // 상수여서 static import가 가능
-import static enumeration.ex03.Grade.*;
+import static enumeration.ex3.Grade.*;
 
 public class DiscountService {
 

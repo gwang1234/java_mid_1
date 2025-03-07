@@ -1,4 +1,4 @@
-package enumeration.ex03;
+package enumeration.ex3;
 
 public class EnumRefMain {
 
