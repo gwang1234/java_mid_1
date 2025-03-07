@@ -317,5 +317,36 @@ int result = valueAdder.add(1).add(2).add(3).getValue();
 
 > ordinal()은 가급적 사용하지 않는 것이 좋다. 중간에 상수를 선언하는 위치가 변경되면 전체 상수 위치가 변경되기 때문
 
+<br><br><br><br><br><br>
+
+## 날짜와 시간
+
 <br>
 
+### LocalDate, LocalTime, LocalDateTime
+- LocalDate: 년,월,일을 다룬다. 예) `2020-11-11`
+- LocalTime: 시,분,초를 다룬다. 예) `08:20:30.213`
+- LocalDateTime: LocalDate + LocalTime 예) `2020-11-11T08:20:30.213`
+
+### ZonedDateTime, OffsetDateTime
+- ZonedDateTime: 시간대를 고려한 날짜와 시간을 표현할 때 사용
+  - 예) `2020-11-11T08:20:30.213+9:00[Asia/Seoul]`
+  - 일광 절약 시간제가 적용
+- OffestDateTime: 시간대를 고려한 날짜와 시간을 표현할 때 사용
+  - 예) `2020-11-11T08:20:30.213+9:00`
+  - 일광 절약 시간제가 적용되지 않음
+- `ZonedDateTime`은 구체적인 지역 시간대를 다룰 때 사용하며, 일광 절약 시간을 자동으로 처리할 수 있다
+- `OffsetDateTime`은 UTC와의 시간 차이만 나타낼 때 사용하며, 지역 시간대의 복잡성을 고려하지 않는다
+
+### Year, Month, YearMonth, MonthDay
+- 년, 월, 년월, 달일을 각각 다룰 때 사용한다
+- `DayOfWeek`와 같이 월,화,수,목,금,토,일을 나타내는 클래스도 있다
+
+### Instant
+- `UTC`를 기준으로 하는, 시간의 한 지점을 나타낸다
+- 날짜와 시간을 나노초 정밀도로 표현하며, 1970년 1월 1일 0시 0분 0초를 기준으로 경과한 시간으로 계산된다
+- Instance 내부에는 초 데이터만 들어있다
+
+### Period, Duration
+- Period: 두 날짜 사이의 간격을 년,월,일 단위로 나타낸다
+- Duration: 두 날짜 사이의 간격을 시,분,초 단위로 나타낸다
