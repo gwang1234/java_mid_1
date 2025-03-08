@@ -347,6 +347,13 @@ int result = valueAdder.add(1).add(2).add(3).getValue();
 - 날짜와 시간을 나노초 정밀도로 표현하며, 1970년 1월 1일 0시 0분 0초를 기준으로 경과한 시간으로 계산된다
 - Instance 내부에는 초 데이터만 들어있다
 
+<br>
+
+> Epoch 시간은 컴퓨터 시스템에서 시간을 나타내는 방법 중 하나다
+> `Instant`는 Epoch 시간을 다루는 클래스다
+
+<br>
+
 ### Period, Duration
 - Period: 두 날짜 사이의 간격을 년,월,일 단위로 나타낸다
 - Duration: 두 날짜 사이의 간격을 시,분,초 단위로 나타낸다
