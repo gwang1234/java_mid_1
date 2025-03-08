@@ -358,6 +358,15 @@ int result = valueAdder.add(1).add(2).add(3).getValue();
 - Period: 두 날짜 사이의 간격을 년,월,일 단위로 나타낸다
 - Duration: 두 날짜 사이의 간격을 시,분,초 단위로 나타낸다
 
+### 날짜와 시간 인터페이스
+![a](src/static/date.png)
+- 특정 시점의 시간: `Temporal`(`TemperalAccessor` 포함) 인터페이스 구현
+  - `LocalDateTime`, `ZonedDateTime`, `OffsetDateTime`, `Instant`
+- 시간의 간격: `TemporalAmount` 인터페이스 구현
+  - `Period`, `Duration`
+- 시간의 단위를 뜻하는 인터페이스: `TemporalUnit (ChronoUnit)`
+- 시간의 각 필드를 뜻하는 인터페이스: `TemporalField`
+
 <br><br><br><br><br><br>
 
 ## 중첩 클래스
