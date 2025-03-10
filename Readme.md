@@ -390,6 +390,7 @@ int result = valueAdder.add(1).add(2).add(3).getValue();
 <br>
 
 ### 중첩 클래스의 분류
+![n](src/static/clazz.png)
 - 정적 중첩 클래스 - static
 - 내부 클래스 종류 - non-static
   - 내부 클래스 (인스턴스와 같은 위치)
@@ -447,3 +448,16 @@ __정적 중첩 클래스는 바깥 클래스와 전혀 다른 클래스고, 내
 
 ### 예외 처리가 필요한 이유
 - 정상 흐름과 예외 흐름을 명확하게 분리할 수 있다
+
+### 예외 계층
+
+![.](src/static/exception.png)
+>`Object`: 예외의 최상위 부모  
+>`Throwable`: 최상위 예외. 하위에 `Exception`, `Error`가 있다  
+>`Error`: 애플리케이션에서 복구가 불가능한 예외  
+>`Exception`: 애플리케이션에서 사용할 수 있는 최상위 예외
+
+#### 체크예외 vs 언체크 예외 
+- `RuntimeException`: 컴파일러가 체크 하지 않는 언체크 예외(런타임 예외)
+- 체크 예외는 개발자가 직접 처리해야하고, 언체크는 개발자가 예외를 예외처리 안해도 된다
+
