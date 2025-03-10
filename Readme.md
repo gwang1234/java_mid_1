@@ -367,6 +367,21 @@ int result = valueAdder.add(1).add(2).add(3).getValue();
 - 시간의 단위를 뜻하는 인터페이스: `TemporalUnit (ChronoUnit)`
 - 시간의 각 필드를 뜻하는 인터페이스: `TemporalField`
 
+### TemporalAccessor.get(TemporalField field)
+- ex) `dt.get(ChronoField.YEAR)` or 편의 메서드`dt.getYear()`
+- 날짜와 시간을 조회한다
+
+### Temporal plus(long amountToAdd, TemporalUnit unit)
+- ex) `dt.plus(10, ChronoUnit.YEARS)` or 편의 메서드 `dt.plusYear(10)`
+- 특정 시점의 시간을 더할 수 있다
+
+### TemporalAdjuster
+- Tmeporal.with()는 단순한 날짜 변경
+- TemporalAdjuster는 복잡한 날자 계산을 하여 날짜를 변경
+  - `ex)`
+  - TemporalAdjusters.next(DayOfWeek.FRIDAY) : 다음 금요일을 구한다.
+  - TemporalAdjusters.lastInMonth(DayOfWeek.SUNDAY) : 이번 달의 마지막 일요일을 구한다
+
 <br><br><br><br><br><br>
 
 ## 중첩 클래스
